@@ -1,0 +1,22 @@
+{
+  "title": {
+    "value": "Cars manager"
+  },
+  "cars": [
+    {
+      "name": "Renault",
+      "color": "purple",
+      "id": 1
+    },
+    {
+      "name": "Suzuki",
+      "color": "aqua",
+      "id": 2
+    },
+    {
+      "name": "Fiat",
+      "color": "yellow",
+      "id": 3
+    }
+  ]
+}

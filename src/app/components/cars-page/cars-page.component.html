@@ -1,0 +1,29 @@
+<h2>{{appTitle | async}}</h2>
+<hr>
+<input type="text" placeholder="Enter a name" class="form-control mb-1" [(ngModel)]="carName">
+<input type="text" placeholder="Enter a color" class="form-control" [(ngModel)]="carColor">
+<hr>
+<button class="btn btn-primary me-2" (click)="loadCars()">Upload cars</button>
+<button class="btn btn-success me-2" (click)="addCar()">Add a car</button>
+<hr>
+<div>
+  <ul class="list-group" *ngFor="let car of cars">
+    <li class="list-group-item mb-1">
+      <a class="nav-link" [routerLink]="['/cars', car.id, car.name]"
+      [queryParams]="{color: car.color}">{{car.name}}</a>
+      <span class="position-absolute top-50 end-0 translate-middle-y me-3 badge rounded-pill"
+        [ngStyle]="{background: car.color}">{{car.id}}</span>
+      <button class="btn btn-outline-secondary btn-sm me-1 top-0"
+        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .7rem;"
+        (click)="setNewColor(car)">
+        Change a color
+      </button>
+      <button class="btn btn-outline-danger me-1"
+        style="--bs-btn-padding-y: .05rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .7rem;"
+        (click)="deleteCar(car)">
+        Delete the car
+      </button>
+    </li>
+  </ul>
+</div>
+<router-outlet></router-outlet>
